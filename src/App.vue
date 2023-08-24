@@ -47,13 +47,13 @@ let openMenu = ref(false);
           </div>
           <ChevronDown
             v-if="!openMenu"
-            @click="openMenu = true"
+            @click="openMenu = false"
             fillColor="#FFFFFF"
             :size="25"
           />
           <ChevronUp
-            v-else="openMenu"
-            @click="openMenu = false"
+            v-else
+            @click="openMenu = true"
             fillColor="#FFFFFF"
             :size="25"
           />
@@ -73,52 +73,98 @@ let openMenu = ref(false);
     </div>
 
     <!-- sideNav -->
-    <div id="sideNav" class="h-[100%] p-6 w-[80px] sm:w-[150px] md:w-[240px] fixed z-50 bg-black">
+    <div
+      id="sideNav"
+      class="h-[100%] p-6 w-[80px] sm:w-[150px] md:w-[240px] fixed z-50 bg-black"
+    >
       <RouterLink to="/">
-        <img class="hidden sm:block" width="125" src="/public/images/icons/spotify-logo.png" alt="" />
-        <img class="block sm:hidden" width="30" src="/public/images/icons/spotify-mobile.png" alt="" />
+        <img
+          class="hidden sm:block"
+          width="125"
+          src="/public/images/icons/spotify-logo.png"
+          alt=""
+        />
+        <img
+          class="block sm:hidden"
+          width="30"
+          src="/public/images/icons/spotify-mobile.png"
+          alt=""
+        />
       </RouterLink>
       <div class="my-8"></div>
       <ul>
         <RouterLink to="/">
-          <MenuItem class="ml-[1px]" :iconSize="23" name="Home" iconString="home" pageUrl="/" />
+          <MenuItem
+            class="ml-[1px]"
+            :iconSize="23"
+            name="Home"
+            iconString="home"
+            pageUrl="/"
+          />
         </RouterLink>
         <RouterLink to="/search">
-          <MenuItem class="ml-[1px]" :iconSize="24" name="Search" iconString="search" pageUrl="/search" />
+          <MenuItem
+            class="ml-[1px]"
+            :iconSize="24"
+            name="Search"
+            iconString="search"
+            pageUrl="/search"
+          />
         </RouterLink>
         <RouterLink to="/library">
-          <MenuItem class="ml-[2px]" :iconSize="23" name="Library" iconString="library" pageUrl="/library" />
+          <MenuItem
+            class="ml-[2px]"
+            :iconSize="23"
+            name="Library"
+            iconString="library"
+            pageUrl="/library"
+          />
         </RouterLink>
         <div class="py-3.5"></div>
-        <MenuItem class="ml-[1px]" :iconSize="23" name="Create Playlist" iconString="playlist" pageUrl="/playlist" />
-        <MenuItem class="ml-[1px]" :iconSize="23" name="Liked Songs" iconString="liked" pageUrl="/liked" />
+        <MenuItem
+          class="ml-[1px]"
+          :iconSize="23"
+          name="Create Playlist"
+          iconString="playlist"
+          pageUrl="/playlist"
+        />
+        <MenuItem
+          class="ml-[1px]"
+          :iconSize="23"
+          name="Liked Songs"
+          iconString="liked"
+          pageUrl="/liked"
+        />
       </ul>
       <div class="hidden sm:block border-b border-b-gray-700"></div>
       <ul>
-        <li class="hidden sm:block font-semibold text-[13px] mt-3 text-gray-300 hover:text-white">My Playlist #1</li>
-        <li class="hidden sm:block font-semibold text-[13px] mt-3 text-gray-300 hover:text-white">My Playlist #2</li>
-        <li class="hidden sm:block font-semibold text-[13px] mt-3 text-gray-300 hover:text-white">My Playlist #3</li>
-        <li class="hidden sm:block font-semibold text-[13px] mt-3 text-gray-300 hover:text-white">My Playlist #4</li>
+        <li
+          class="hidden sm:block font-semibold text-[13px] mt-3 text-gray-300 hover:text-white"
+        >
+          My Playlist #1
+        </li>
+        <li
+          class="hidden sm:block font-semibold text-[13px] mt-3 text-gray-300 hover:text-white"
+        >
+          My Playlist #2
+        </li>
+        <li
+          class="hidden sm:block font-semibold text-[13px] mt-3 text-gray-300 hover:text-white"
+        >
+          My Playlist #3
+        </li>
+        <li
+          class="hidden sm:block font-semibold text-[13px] mt-3 text-gray-300 hover:text-white"
+        >
+          My Playlist #4
+        </li>
       </ul>
     </div>
   </div>
 
-    
   <!-- Main -->
-  <div 
-    class="
-      fixed
-      right-0
-      top-0
-      w-[calc(100%-80px)]
-      sm:w-[calc(100%-150px)]
-      md:w-[calc(100%-240px)]
-      overflow-auto
-      h-full
-      bg-gradient-to-b
-      from-[#1C1C1C]
-      to-black
-    "
+  <div
+    class="fixed right-0 top-0 w-[calc(100%-80px)] sm:w-[calc(100%-150px)] md:w-[calc(100%-240px)] overflow-auto h-full bg-gradient-to-b from-[#1C1C1C] to-black"
   >
     <div class="mt-[70px]"></div>
     <RouterView />
