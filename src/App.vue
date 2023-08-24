@@ -14,7 +14,7 @@ let openMenu = ref(false);
 <template>
   <div>
     <div
-      class="w-[calc(100%-240px)] h-[60px] fixed right-0 z-20 bg-[#101010] bg-opacity-80 flex items-center justify-between"
+      class="w-[calc(100%-80px)] sm:w-[calc(100%-150px)] md:w-[calc(100%-240px)] h-[60px] fixed right-0 z-20 bg-[#101010] bg-opacity-80 flex items-center justify-between"
     >
       <div class="flex items-center ml-6">
         <button
@@ -73,9 +73,10 @@ let openMenu = ref(false);
     </div>
 
     <!-- sideNav -->
-    <div id="sideNav" class="h-[100%] p-6 w-[240px] fixed z-50 bg-black">
+    <div id="sideNav" class="h-[100%] p-6 w-[80px] sm:w-[150px] md:w-[240px] fixed z-50 bg-black">
       <RouterLink to="/">
-        <img width="125" src="/public/images/icons/spotify-logo.png" alt="" />
+        <img class="hidden sm:block" width="125" src="/public/images/icons/spotify-logo.png" alt="" />
+        <img class="block sm:hidden" width="30" src="/public/images/icons/spotify-mobile.png" alt="" />
       </RouterLink>
       <div class="my-8"></div>
       <ul>
@@ -92,13 +93,35 @@ let openMenu = ref(false);
         <MenuItem class="ml-[1px]" :iconSize="23" name="Create Playlist" iconString="playlist" pageUrl="/playlist" />
         <MenuItem class="ml-[1px]" :iconSize="23" name="Liked Songs" iconString="liked" pageUrl="/liked" />
       </ul>
-      <div class="border-b border-b-gray-700"></div>
+      <div class="hidden sm:block border-b border-b-gray-700"></div>
       <ul>
-        <li class="font-semibold text-[13px] mt-3 text-gray-300 hover:text-white">My Playlist #1</li>
-        <li class="font-semibold text-[13px] mt-3 text-gray-300 hover:text-white">My Playlist #2</li>
-        <li class="font-semibold text-[13px] mt-3 text-gray-300 hover:text-white">My Playlist #3</li>
-        <li class="font-semibold text-[13px] mt-3 text-gray-300 hover:text-white">My Playlist #4</li>
+        <li class="hidden sm:block font-semibold text-[13px] mt-3 text-gray-300 hover:text-white">My Playlist #1</li>
+        <li class="hidden sm:block font-semibold text-[13px] mt-3 text-gray-300 hover:text-white">My Playlist #2</li>
+        <li class="hidden sm:block font-semibold text-[13px] mt-3 text-gray-300 hover:text-white">My Playlist #3</li>
+        <li class="hidden sm:block font-semibold text-[13px] mt-3 text-gray-300 hover:text-white">My Playlist #4</li>
       </ul>
     </div>
+  </div>
+
+    
+  <!-- Main -->
+  <div 
+    class="
+      fixed
+      right-0
+      top-0
+      w-[calc(100%-80px)]
+      sm:w-[calc(100%-150px)]
+      md:w-[calc(100%-240px)]
+      overflow-auto
+      h-full
+      bg-gradient-to-b
+      from-[#1C1C1C]
+      to-black
+    "
+  >
+    <div class="mt-[70px]"></div>
+    <RouterView />
+    <div class="mb-[100px]"></div>
   </div>
 </template>
