@@ -81,13 +81,13 @@ let openMenu = ref(false);
         <img
           class="hidden sm:block"
           width="125"
-          src="/public/images/icons/spotify-logo.png"
+          src="/images/icons/spotify-logo.png"
           alt=""
         />
         <img
           class="block sm:hidden"
           width="30"
-          src="/public/images/icons/spotify-mobile.png"
+          src="/images/icons/spotify-mobile.png"
           alt=""
         />
       </RouterLink>
